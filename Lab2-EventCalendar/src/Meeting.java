@@ -5,10 +5,14 @@ import java.time.temporal.ChronoUnit;
 public class Meeting extends Event implements Completable{
     private LocalDateTime endDateTime;
     private String location;
-    public String meetingName;
     Boolean complete = false;
 
-    public Meeting(String meetingOrintation, LocalDateTime start, LocalDateTime end, String location) {}
+    public Meeting(String meetingOrintation, LocalDateTime start, LocalDateTime end, String location) {
+        setName(meetingOrintation);
+        endDateTime = end;
+        this.location = location;
+        setDateTime(start);
+    }
 
     @Override
     public void complete() {
